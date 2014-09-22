@@ -2,6 +2,7 @@ class profile::base {
   include profile::firewall
   include profile::pe::path
   include ntp
+  include users
   package { [
     'tree',
   ]:

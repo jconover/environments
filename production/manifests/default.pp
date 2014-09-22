@@ -12,3 +12,9 @@ node default {
   notify { "node '${::clientcert}' has not been classified": }
   include profile::base
 }
+
+node 'master.broadstripe.com' {
+  notify {"This the master speaking.":}
+}
+
+notify {"this is a test":}

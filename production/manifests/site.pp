@@ -19,7 +19,7 @@
 
 # Define filebucket 'main':
 filebucket { 'main':
-  server => 'master',
+  server => 'master.example.com',
   path   => false,
 }
 

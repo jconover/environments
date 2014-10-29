@@ -13,8 +13,4 @@ node default {
   include profile::base
 }
 
-node 'master.broadstripe.com' {
-  notify {"This the master speaking.":}
-}
-
 notify {"this is a test":}

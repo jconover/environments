@@ -11,6 +11,8 @@
 node default {
   notify { "node '${::clientcert}' has not been classified": }
   include profile::base
+  include ssh
+  include sudo
 }
 
 notify {"this is a test":}

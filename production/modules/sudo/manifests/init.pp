@@ -4,12 +4,12 @@ class sudo {
     ensure => present,
   }
 
-  if $::osfamily == 'Debian' {
-    package { 'sudo-ldap':
-      ensure  => present,
-      require => Package['sudo'],
-    }
-  }
+  #  if $::osfamily == 'Debian' {
+  #  package { 'sudo-ldap':
+  #    ensure  => present,
+  #    require => Package['sudo'],
+  #  }
+  #}
 
   file { '/etc/sudoers':
     owner   => 'root',

@@ -1,0 +1,1279 @@
+2011-12-30 Jeff McCune <jeff@puppetlabs.com> - v2.2.1
+======================================================
+ Jeff McCune <jeff@puppetlabs.com> (5):
+  * Docs: Improve example in merge function
+  * Docs: Update file_line documentation
+  * (maint) Add semantic versioning info to README
+  * Update Modulefile CHANGELOG for v2.1.2 release
+  * Update CHANGELOG and Modulefile for 2.2.1
+ 
+ nfagerlund <nick.fagerlund@gmail.com> (5):
+  * Docs: Update documentation of stdlib classes
+  * Docs: Correct indentation of markdown code examples
+  * Docs: Copyedit function doc strings
+  * Docs: Remove author emails from stdlib functions
+  * Docs: Clarify the use case for the anchor type
+ 
+2011-11-08 Garrett Honeycutt <github@garretthoneycutt.com> - v2.2.0
+====================================================================
+ Krzysztof Wilczynski <krzysztof.wilczynski@linux.com> (120):
+  * Re-factor of the code to make it more Puppet-friendly and update of the
+    short documentation in the comment lines.
+  * Fix to a type in the documentation.
+  * Re-factor. Removed not needed shebang for Ruby.
+  * Fix. Given vim mode line should end with : in order to work.
+  * Fix. Should yield empty data structure when given key cannot be found in
+    the hash upon parsing YAML file.
+  * Fix. The data structure should only be populated and/or set to be empty
+    if and only if key is present.
+  * Small re-factor.
+  * Check for the number of arguments given.
+  * Small re-factor.
+  * Changing the name of the file to reflect change in the function name.
+  * Changing the way how function description and usage was given.  Now
+    documentation is exposed properly via Puppet itself.
+  * First version.
+  * Adding README file ...
+  * Changing the name of the file to reflect change in the function name.
+  * Create destination directory on-demand i.e. when missing ...
+  * Minor changes. Added placeholder for :doc in Puppet's newfunction to fill
+    later.
+  * First version.  A function for Puppet that allows to retrieve a fact from
+    Facter easily instead of resorting to awful "inline_template"
+    use-and-abuse practices.
+  * We do not need cronrand.rb any more.
+  * Small changes.  Mainly to formatting of the help provided.
+  * Fix.  It is better to promote good practice...
+  * First version.  Adding join to Puppet for use within the manifest files.
+  * First version.  Function that allows to collect selected indices from an
+    array within Puppet manifest.  More or less how array slicing works in
+    Perl ...
+  * Small changes.  Added better error checking etc ...
+  * Adding ability to specifiy range as the index when selecting indices to
+    collect.
+  * Adding more error checking ...
+  * Updated error check and reporting.  Also we now return empty string value
+    i.e. "" instead of raising an exception when a particular fact is not
+    present.  We also make use of strinterp() explicitly to evaluate
+    arguments passed to the function.
+  * Update to error reporting.
+  * Updated help message.
+  * Added help accessible via the :doc functionality in Puppet's newfunction.
+  * First version.  Improvment upon bool2num function found on the Internet.
+  * Minor update.
+  * First version.  Function opposite to the bool2num one.  Converts number
+    to appropriate boolean value.
+  * Small re-factor of fact function.
+  * Changing name of join.rb to join_with_prefix.rb to make room for its
+    simpler version.
+  * Small re-factor to fact function.
+  * First version.  Simple join function to use within Puppet DSL.
+  * First version.  Simple prefix function to use within Puppet DSL.
+  * Re-factor of the original function.  Now its behaviour is either to join
+    with prefix or just add prefix or simply join.  This depends on its use.
+  * First version.  Simple empty function to use within Puppet DSL.
+  * First version.  Simple count function to use within Puppet DSL.
+  * First version.  Simple include function to use within Puppet DSL.
+  * First version.  Simple reverse function to use within Puppet DSL.
+  * First version.  Simple shuffle function to use within Puppet DSL.
+  * First version.  Simple unique function to use within Puppet DSL.
+  * First version.  Simple size function to use within Puppet DSL.
+  * Small re-factor.  We prefer our local clone of the array ...
+  * First version.  Simple delete_at function to use within Puppet DSL.
+  * Changing name of collect_indices.rb to values_at.rb in order to be
+    reasemble Ruby's Array#values_at more.  Added support for ranges with
+    hyphen, two and three dots notation.
+  * Removing surplus files.
+  * Changed comment line wording.
+  * Removing string interpolation from fact.rb.  I am not sure whether we
+    should fiddle with this.  The old behaviour e.g. evaluate when inside ""
+    and don't do anything when inside '' is probably better choice in the end
+    as people are used to it working that way.
+  * First version.  Simple range function to use within Puppet DSL.
+  * Changing name of the function from include to includes as it clashes with
+    a core function from Puppet::Parser.  I had no idea that you can
+    over-write some of the that way. Oops.
+  * Minor changes.
+  * First version.  Simple is_array function to use within Puppet DSL.
+  * First version.  Simple is_string function to use within Puppet DSL.
+  * First version.  Simple time function to use within Puppet DSL.
+  * First version.  Simple strftime function to use within Puppet DSL.
+  * Removing old unused file.
+  * First version.  Simple abs function to use within Puppet DSL.
+  * Added TODO for future reference.
+  * Changed wording from numeric to integer.
+  * Added TODO for future reference.
+  * Added TODO for future reference.
+  * Added TODO for future reference.
+  * Adding relevant code.
+  * First version.  Simple is_hash function to use within Puppet DSL.
+  * Adding support for string alongside arrays.
+  * First version.  Simple type function to use within Puppet DSL.
+  * First version.  Simple capitalize function to use within Puppet DSL.
+  * Small re-factor of shuffle function.  It is more compact now.
+  * Added support for strings to reverse.
+  * First version.  Simple strip function to use within Puppet DSL.
+  * First version.  Simple rstrip function to use within Puppet DSL.
+  * First version.  Simple lstrip function to use within Puppet DSL.
+  * First version.  Simple chop function to use within Puppet DSL.
+  * First version.  Simple chomp function to use within Puppet DSL.
+  * Adding support for strings and hashes to the function empty.
+  * Make sure that we have string-encoded integer value.
+  * Adding support for strings to the the function unique.
+  * Adding TODO for future reference.
+  * Added FalseClass and TrueClass to be identified as Boolean to the type
+    function.
+  * Added proper handling of both FalseClass and TrueClass.  We also return
+    real integer values now over string-encoded integers.
+  * Reverting name back to bool2num.
+  * First version.  Simple str2bool function to use within Puppet DSL.
+  * Minor changes.
+  * Added check to ensure that given fact name is a string.
+  * Minor change.
+  * Renaming from includes to member in order to avoid confusion and
+    possibility of a clash with Puppet built-in function include.
+  * Renaming the file from includes.rb to member.rb.
+  * Removing old file includes.rb
+  * Changed wording in the error message.
+  * Minor changes.
+  * Small re-factor.  Changed if not to unless for code clarity.
+  * Small re-factor.  Changed if not to unless for code clarity.
+  * Adding support for hash and string to the function count.
+  * Moved to unless from if not for code clarity and changed wording of few
+    error messages.
+  * Moved to unless from if not and removed TODO.
+  * Moved to unless from if not plus removed surplus empty lines.
+  * Moved to unless from if not and changed wording of few error messages.
+  * Added ability to flatten the resulting array in the function zip. This
+    would allow for creating hashes on the fly from two arrays.
+  * Now prefix will convert everything into string which is the same as join
+    would do.  Also function is now more robust in error detection.
+  * Function has now more robust error detection.
+  * Corrected function name from chop to strip.  Moved to unless from if not
+    to improve code clarity.
+  * Added comment line.
+  * Added comment line.
+  * Small change to code formatting.
+  * Moved to unless from if not to make code more clear.  Plus a variable
+    name change for simplicity.
+  * Added TODO for future reference.
+  * Moved to unless from if not to improve code clarity.  Added TODO for
+    future reference.  Changed wording of few error messages.
+  * Moved to unless from if not to improve code clarity.  Changed wording of
+    few error messages.
+  * Added body of the function flatten.
+  * Small re-factor.  Remove not needed complexity.
+  * Changed wording of the note in the comment.
+  * Change boolean detecion from string to make entire function more robust.
+  * First version.  Simple hash function to use within Puppet DSL.
+  * Add number of stub code for future functions.
+  * Making sure that the function hash will also work on older Rubies.
+  * First version.  Simple swapcase function to use within Puppet DSL.
+  * Add number of stub code for future functions.
+ 
+ Ken Barber <ken@bob.sh> (41):
+  * Convert to module format.
+  * Change README.
+  * Added Apache license.
+  * Moved type into pluginsync compat area.
+  * Moved type.rb
+  * Moved more functions into lib/puppet/parser/functions/
+  * Added disclaimer and basic installation guide to README.markdown file.
+  * Rename to puppetlabs-functions.
+  * Removed duplicate - is_hash is really now is_hash instead of is_array.
+  * Copied function test scaffolding from puppet.
+  * Added kwalify function.
+  * Added tests for each function, fixing functions as we hit bugs.
+  * New abs test.
+  * Add some more functional tests.
+  * Move require inside function for kwalify.
+  * Few more tests.
+  * Added validate_resource function and examples on how to use it (and
+    kwalify as well)
+  * (#1) - fleshed out some more tests.
+  * (#2) - Added is_float and is_integer functionality.
+  * (#1) - added new test for upcase.
+  * (#2) - unstubbed is_valid_ip_address
+  * (#2) unstub is_numeric function.
+  * Remove is_valid_netmask instead of unstubbing. Doesn't seem like a
+    sensible function on its own.
+  * Removed load_variables. load_yaml is sufficient to solve this problem on
+    its own.
+  * Removed crontab functions instead of unstubbing them.
+  * Count functionality overlaps with size - so removing it.
+  * Allow sort for strings.
+  * (#2) unstub is_valid_mac_address.
+  * Removed join_with_prefix.
+  * (#2) unstub is_valid_domain_name
+  * (#2) fix is_string finally so it also makes sure numbers return false.
+  * Removed date stub since this functinality is available in strftime
+    anyway.
+  * (#1) provide some more detailed tests for a number of functions.
+  * Some improvements to values_at tests.
+  * Remove rand.
+  * (#3) Apply missing documentation to more functions.
+  * (#3) Provide documentation for remaining functions.
+  * Fix some ruby 1.9.2 issues.
+  * Prep for stdlib merge * Renamed load_yaml & load_json to parseyaml &
+    parsejson * Renamed is_valid_* functions and remove the 'valid_'
+  * * Moved kwalify to puppetlabs-kwalify project * Re-arranged tests in line
+    with puppetlabs-stdlib
+  * (#8925) Added new function called 'get_certificate' for retrieving
+    certificates from a CA (or locally).
+ 
+ Jeff McCune <jeff@puppetlabs.com> (5):
+  * Update CHANGELOG, README and Modulefile for v2.1.1
+  * (#9859) Add root_home fact and tests
+  * (#10007) Revert "Merge pull request #13 from
+    kbarber/issue/master/8925-user_ssl_certs"
+  * (Maint) Make rspec tests work with Puppet 2.6.4
+  * (Maint) Add watchr autotest script
+ 
+ Roman Barczyński <romke@estrefa.pl> (3):
+  * initial version
+  * cronrand - stateful (between puppet runs) randomizer eg. for cron minutes
+    for equal load distribution
+  * no need for "#! ruby", vim modeline must end with ":", and fixed not
+    found key bug
+ 
+ James Turnbull <james@lovedthanlost.net> (2):
+  * Added doc strings for first five functions
+  *  * v2.x:       Update CHANGELOG and Modulefile for v2.2.0
+ 
+ Nan Liu <nan@puppetlabs.com> (1):
+  * (#10285) Refactor json to use pson instead.
+ 
+2011-12-30 Jeff McCune <jeff@puppetlabs.com> - v2.1.2
+======================================================
+ nfagerlund <nick.fagerlund@gmail.com> (5):
+  * Docs: Update documentation of stdlib classes
+  * Docs: Correct indentation of markdown code examples
+  * Docs: Copyedit function doc strings
+  * Docs: Remove author emails from stdlib functions
+  * Docs: Clarify the use case for the anchor type
+ 
+ Jeff McCune <jeff@puppetlabs.com> (4):
+  * Docs: Improve example in merge function
+  * Docs: Update file_line documentation
+  * (maint) Add semantic versioning info to README
+  * Update Modulefile CHANGELOG for v2.1.2 release
+ 
+2011-08-18 Jeff McCune <jeff@puppetlabs.com> - v2.1.1
+======================================================
+ Jeff McCune <jeff@puppetlabs.com> (2):
+  * (#9080) Make facts.d match Facter 2.0
+  * Update CHANGELOG, README and Modulefile for v2.1.1
+ 
+2011-08-17 Jeff McCune <jeff@puppetlabs.com> - v2.1.0
+======================================================
+ Jeff McCune <jeff@puppetlabs.com> (2):
+  * (#9080) Add facts from /etc/puppetlabs/facts.d
+  * Update CHANGELOG, Modulefile and README for 2.1.0
+ 
+2011-08-08 Jeff McCune <jeff@puppetlabs.com> - v2.0.0
+======================================================
+ Jeff McCune <jeff@puppetlabs.com> (3):
+  * (#8792) Rename whole_line type to file_line
+  * (#8792) Rename basic smoke test to reflect file_line rename
+  * Update CHANGELOG and Modulefile for 2.0.0 release
+ 
+2011-08-04 Jeff McCune <jeff@puppetlabs.com> - v1.1.0
+======================================================
+ Dan Bode <dan@puppetlabs.com> (1):
+  * (#8665) Change type from append_line to whole_line
+ 
+ Jeff McCune <jeff@puppetlabs.com> (1):
+  * Update CHANGELOG and Modulefile for 1.1.0
+ 
+2011-08-04 Jeff McCune <jeff@puppetlabs.com> - v1.0.0
+======================================================
+ Jeff McCune <jeff@puppetlabs.com> (4):
+  * (#8575) Add loadyaml() function
+  * (#8717) Make merge() function work with Ruby 1.8.5
+  * (#8678) Add validate_array and validate_string functions
+  * Update CHANGELOG and README for 1.0.0
+ 
+ Dan Bode <dan@puppetlabs.com> (3):
+  * (#8628) Add append_line native type
+  * (#8708) Add has_key function
+  * (#8709) Add hash merging function
+ 
+2011-06-21 Jeff McCune <jeff@puppetlabs.com> - v0.1.7
+======================================================
+ * no changes since the previous version.2014-06-04 Ashley Penney <ashley.penney@puppetlabs.com> - 4.2.2
+================================================================
+ Ashley Penney <ashley.penney@puppetlabs.com> (3):
+  * Prepare a 4.3.0 release.
+  * Claim PE3.3 support.
+  * Prepare a 4.2.2 release.
+ 
+ Morgan Haskel <morgan@puppetlabs.com> (2):
+  * Merge pull request #264 from apenney/fixes-for-tests
+  * Merge pull request #265 from apenney/fix-tests
+ 
+2014-05-09 Ashley Penney <ashley.penney@puppetlabs.com> - 4.2.1
+================================================================
+ Ashley Penney <ashley.penney@puppetlabs.com> (1):
+  * Prepare a 4.2.1 release.
+ 
+2014-05-08 Ashley Penney <ashley.penney@puppetlabs.com> - 4.2.0
+================================================================
+ Adrien Thebo <git@somethingsinistral.net> (17):
+  * (maint) split up range spec with describe blocks
+  * (maint) Use present tense in range_spec messages
+  * (maint) Clean up range_spec error expectation
+  * (maint) Remove syntax decoration from range_spec
+  * (maint) Remove unneeded parens around exceptions
+  * (maint) Explicitly unpack validate_slength args
+  * (maint) reword error messages for validate_slength
+  * (maint) clean up validate_slength argument validation
+  * (maint) collapse String/Array validation into shared lambda
+  * (maint) reindent case statement to match standard indentation
+  * (maint) refactor validate_slength tests
+  * (maint) Validate input argument in a single location
+  * (maint) Simplify validate_cmd specs
+  * (maint) Improve test coverage for prefix and suffix
+  * (maint) refactor ensure_packages for clarity
+  * (maint) Update ensure_package specs to confirm expected behavior
+  * (maint) Pin rake version to 10.1.0 for 1.8 compat
+ 
+ Hunter Haugen <hunter@puppetlabs.com> (15):
+  * Supported Release 3.2.1
+  * Patch metadata
+  * First set of tests
+  * Add success/fail groups
+  * Add build_csv
+  * Adding more tests
+  * Add more specs
+  * Fix the validate_augeas beaker tests
+  * Update build_csv to understand contexts
+  * Adding more spec coverage
+  * Move the 4 misplaced tests
+  * Add mode +x to spec .rb files
+  * Move unit tests to spec/functions
+  * Fix the stdlib functions that fail tests
+  * Release - 4.2.0
+ 
+ Ashley Penney <ashley.penney@puppetlabs.com> (12):
+  * Pin rspec-puppet to 0.1.6 for now as the change to 1.0.0 has broken
+    things involving Mocha badly.
+  * Prepare for supported modules.
+  * Numerous changes to update testing gems.
+  * Numerous changes to update testing gems.
+  * Remove pry, whoops.
+  * Readd location_for
+  * Make sure location_for is used when installing Puppet.
+  * Ensure Gemfile retains facilities for Jenkins.
+  * Add beaker framework.
+  * Remove this test.
+  * Add some acceptance tests for functions.
+  * Adjust the regular expression for facts.
+ 
+ Leonardo Rodrigues de Mello <l@lmello.eu.org> (6):
+  * enhanced the error message of pick function.
+  * bug # 20681 delete() function should not remove elements from original
+    list
+  * (#20681) fix behaviour of delete_values
+  * (#20681) delete_at function unit test against issue
+  * (#16498) Added unit test for loadyaml function.
+  * (#20681) fix behaviour of delete_undef_values
+ 
+ Jeff McCune <jeff@puppetlabs.com> (4):
+  * (maint) Fix location_for helper method
+  * (maint) Fix failing spec test with Puppet 3.3.0-rc2
+  * (maint) Improve the tests and readability of file_line
+  * (maint) Update README stating stdlib 4.x supports Puppet 2.7.x
+ 
+ Martin Hellmich <mhellmic@gmail.com> (4):
+  * check if an argument supposed to be merged is empty to pass over undefs
+    without failing
+  * fix in merge.rb: refine the checking if an argument is an empty string
+  * Added rspec tests for the new behaviour of merge accepting empty strings
+  * changed the validate_slength function to accept a min length
+ 
+ Will Farrington <wfarr@github.com> (4):
+  * Add functions to validate ipv4 and ipv6 addresses
+  * Ruby 2.0 introduces IPAddr::InvalidAddressError
+  * Update ipv6 examples
+  * Don't run certain tests under 1.8.7
+ 
+ Garrett Honeycutt <code@garretthoneycutt.com> (3):
+  * Remove unintentional link from README
+  * Add rake tasks to validate and lint files and check with Travis
+  * Enable fast finish in Travis
+ 
+ Paweł Tomulik <ptomulik@meil.pw.edu.pl> (3):
+  * added delete_values() and delete_undef_values() functions
+  * minor corrections to delete_values()
+  * small fix to delete_values_spec.rb and README.markdown
+ 
+ Andrew Parker <andy@puppetlabs.com> (2):
+  * (Maint) Update stubbing to work with facter 1.7.4
+  * (doc) Update to point to Jira
+ 
+ David Schmitt <david@dasz.at> (2):
+  * (PUP-636) Ignore generated file
+  * (PUP-638) Add a pick_default() function that always returns a value.
+ 
+ Justin Burnham <jburnham@mediatemple.net> (2):
+  * (#20200) Add a recursive merge function.
+  * PUP-1724 Don't modify the paramaters to deep_merge
+ 
+ Tomas Doran <tdoran@yelp.com> (2):
+  * Fix the tests on osx
+  * Allow a single argument, rather than an array
+ 
+ Alex Cline <acline@us.ibm.com> (1):
+  * (#20684) Add array comparison functions, difference, intersection and
+    union.
+ 
+ Alex O'Rielly <aorielly@gmail.com> (1):
+  * (#21416) Allow file_line to match multiple lines
+ 
+ Andrea Veri <av@gnome.org> (1):
+  * Add the missing shebangs and fix the wrong ones for rpmlint to stop
+    complaining loudly
+ 
+ Chris Boot <crb@tiger-computing.co.uk> (1):
+  * ensure_resource: fix documentation typo
+ 
+ Dan Prince <dprince@redhat.com> (1):
+  * Update file_line resource to support 'after'.
+ 
+ David Bishop <david@gnuconsulting.com> (1):
+  * (DOCUMENT-21) add docs for file_line to README.markdown
+ 
+ Franco Catena <francocatena@gmail.com> (1):
+  * Fix prefix exception message (Closes #23364)
+ 
+ GoT <PierreRambaud@users.noreply.github.com> (1):
+  * Update README.markdown
+ 
+ Henrik Lindberg <henrik.lindberg@cloudsmith.com> (1):
+  * (PUP-1195) Rephrase documentation for is_integer and is_numeric
+ 
+ Hubert <h.deheer@gmail.com> (1):
+  * Fix validate_slength, arg.length should be args[0].length
+ 
+ Joshua Hoblitt <jhoblitt@cpan.org> (1):
+  * (#23381) add is_bool() function
+ 
+ Juan Treminio <jtreminio@gmail.com> (1):
+  * hash example has misplaced comas
+ 
+ Kylo Ginsberg <kylo@puppetlabs.com> (1):
+  * (maint) Remove facter versions test
+ 
+ Martin Foot <martin@modeltwozero.com> (1):
+  * Allow concat to take non-array second parameters
+ 
+ Martin Hellmich <mhellmic@cern.ch> (1):
+  * changed .count to .size to support legacy ruby
+ 
+ Matthew Haughton <3flex@users.noreply.github.com> (1):
+  * (Main) fix typo in pick error message
+ 
+ Peter Souter <p.morsou@gmail.com> (1):
+  * Fix strftime documentation in README
+ 
+ Rohan Sheth <rohan@rs3net.net> (1):
+  * Trivial documentation fix
+ 
+ Sharif Nassar <sharif@mediatemple.net> (1):
+  * Remove trailing whitespace
+ 
+ Simon Effenberg <savar@schuldeigen.de> (1):
+  * (PUP-1195) Fix is_numeric/is_integer when checking non-string parameters
+ 
+ Spencer Krum <krum.spencer@gmail.com> (1):
+  * Minor grammar fix
+ 
+ Steve Huff <shuff@vecna.org> (1):
+  * add a "step" argument to range()
+ 
+ Tehmasp Chaudhri <tehmasp@gmail.com> (1):
+  * Fixed 'separator' typos
+ 
+ Tomas Doran <bobtfish@bobtfish.net> (1):
+  * Adjust to use default URI.escape escape list
+ 
+ Tristan Smith <tsmith@palantir.com> (1):
+  * calling rspec directly makes this not pass ruby -c. adjusting to be in
+    line with the rest.
+ 
+ William Van Hevelingen <blkperl@cat.pdx.edu> (1):
+  * (PUP-1459) Add support for root_home on OS X 10.9
+ 
+ Yanis Guenane <yguenane@clarityhs.com> (1):
+  * (MODULES-603) Add defaults arguments to ensure_packages()
+ 
+ fiddyspence <chris.spence@puppetlabs.com> (1):
+  * Adding base64 function
+ 
+ floatingatoll <rsoderberg@gmail.com> (1):
+  * (maint) fix RST formatting of has_interface_with code examples
+ 
+ sgzijl <sgzijl@gmail.com> (1):
+  * (#22214): close content file before executing checkscript
+ 
+2013-05-10 Jeff McCune <jeff@puppetlabs.com> - 4.1.0
+=====================================================
+ Alex Cline <acline@us.ibm.com> (4):
+  * (#20548) Allow an array of resource titles to be passed into the
+    ensure_resource function
+  * Changed str-to-array conversion and removed abbreviation.
+  * Refactor ensure_resource expectations
+  * Terser method of string to array conversion courtesy of ethooz.
+ 
+ Jeff McCune <jeff@puppetlabs.com> (4):
+  * (maint) Update Gemfile with GEM_FACTER_VERSION
+  * Revert "Revert "Revert "Merge branch
+    'hkenney-ticket/master/2157_remove_facts_dot_d'"""
+  * (#20582) Restore facter_dot_d to stdlib for PE users
+  * (maint) Indent facter_dot_d with 2 spaces
+ 
+ Mark Smith-Guerrero <msmithgu@gmail.com> (1):
+  * (maint) Fix a small typo in hash() description
+ 
+ Raphaël Pinson <raphael.pinson@camptocamp.com> (1):
+  * Add a dirname function
+ 
+ Ryan Coleman <ryan@puppetlabs.com> (1):
+  * Update Modulefile, CHANGELOG for version 4.1.0
+ 
+2013-04-12 Jeff McCune <jeff@puppetlabs.com> - 4.0.2
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (2):
+  * Add behavior example for anchor refresh propagation
+  * Update gemspec, Modulefile, CHANGELOG for 4.0.2
+ 
+ Chris Price <chris@puppetlabs.com> (1):
+  * (#13695) add README about puppetlabs_spec_helper
+ 
+ Garrett Honeycutt <code@garretthoneycutt.com> (1):
+  * adds compatibility matrix
+ 
+ Philip Potter <philipgpotter@gmail.com> (1):
+  * Make the anchor type propagate refresh events
+ 
+2013-04-11 Jeff McCune <jeff@puppetlabs.com> - 4.0.1
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (2):
+  * Fix README function documentation
+  * Update gemspec, CHANGELOG, Modulefile for 4.0.1
+ 
+2013-04-11 Jeff McCune <jeff@puppetlabs.com> - 4.0.0
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (18):
+  * Revert "Revert "Revert "Revert "Merge branch
+    'hkenney-ticket/master/2157_remove_facts_dot_d'""""
+  * Clarify that stdlib 3 supports Puppet 3
+  * (maint) Add Travis CI Support
+  * Future proof travis build matrix
+  * Fix typo in travis configuration
+  * Tell Travis CI to notify the PDC WebHook
+  * (maint) Update puppet version in Travis configuration
+  * Ignore bundler turds
+  * (maint) Fix getparam() spec failure on MRI 1.8
+  * Revert "Merge pull request #130 from jhoblitt/has_element"
+  * (maint) Add Ruby 2.0.0 to Travis build matrix
+  * Add contributing document
+  * (maint) Add the behavior for count() with arrays and hashes
+  * (maint) Make stdlib usable as a Ruby GEM
+  * Add ability to use puppet from git via bundler
+  * Update Modulefile, README, CHANGELOG for stdlib-4.0.0
+  * Update function documentation for 4.0.0
+  * Update gemspec for 4.0.0
+ 
+ Raphaël Pinson <raphael.pinson@camptocamp.com> (8):
+  * validate_cmd: Make sure tmpfile is always closed and unlinked
+  * validate_augeas: Ensure augeas handler gets closed
+  * validate_augeas: Ensure tmpfile is closed and unlinked
+  * validate_augeas: requires augeas
+  * Add an URL to a doc on how to activate augeas in puppet
+  * validate_cmd: Use Puppet::Util.execute
+  * validate_cmd(): Use Puppet::Util::Execution.execute when available
+  * Add missing documentation for validate_augeas and validate_cmd to
+    README.markdown
+ 
+ Steve Huff <shuff@vecna.org> (4):
+  * Enable num2bool to accept numeric input
+  * Reworked number-handling logic
+  * (19864) num2bool match fix
+  * Cleanup per adrianthebo suggestions
+ 
+ Amos Shapira <ashapira@atlassian.com> (3):
+  * (#19998) Implement any2array
+  * (#19998) fix name of function in a comment
+  * Remove resundant code
+ 
+ Erik Dalén <dalen@spotify.com> (3):
+  * maint: style guideline fixes
+  * Allow comparisons of Numeric and number as String
+  * Add a count function
+ 
+ Adrien Thebo <git@somethingsinistral.net> (2):
+  * (maint) better error reporting for prefix and suffix
+  * (maint) Backport Gemfile and .travis.yml to 2.x
+ 
+ Raphaël Pinson <raphink@gmail.com> (2):
+  * Add validate_cmd function
+  * Add validate_augeas function
+ 
+ Richard Soderberg <rsoderberg@mozilla.com> (2):
+  * add suffix function to accompany the prefix function
+  * prefix: fix doc typo Examles -> Examples
+ 
+ Uwe Stuehler <ustuehler@team.mobile.de> (2):
+  * Fix number of arguments check in flatten()
+  * Fix number of arguments check in flatten()
+ 
+ David Schmitt <david@dasz.at> (1):
+  * Add geppetto project definition
+ 
+ Eric Shamow <eric@puppetlabs.com> (1):
+  * (#13610) Add is_function_available to stdlib
+ 
+ Jaka Hudoklin <jakahudoklin@gmail.com> (1):
+  * Add getparam function to get defined resource parameters
+ 
+ James Fryman <james@frymanet.com> (1):
+  * puppet-lint cleanup
+ 
+ Joe Julian <me@joejulian.name> (1):
+  * Add function, uriescape, to URI.escape strings. Redmine #17459
+ 
+ Joshua Hoblitt <jhoblitt@cpan.org> (1):
+  * (#19272) Add has_element() function
+ 
+ Justin Lambert <jlambert@eml.cc> (1):
+  * str2bool should return a boolean if called with a boolean
+ 
+ Kristof Willaert <kristof.willaert@gmail.com> (1):
+  * Add floor function implementation and unit tests
+ 
+ Martin Hellmich <mhellmic@cern.ch> (1):
+  * changed .count to .size to support legacy ruby
+ 
+ fatmcgav <gavin.williams@weareact.com> (1):
+  * (#19201) Add concat function to join two arrays
+ 
+ stephen <stephen@puppetlabs.com> (1):
+  * ammend .should raise_error to .to raise_error
+ 
+2014-06-04 Ashley Penney <ashley.penney@puppetlabs.com> - 3.2.2
+================================================================
+ Ashley Penney <ashley.penney@puppetlabs.com> (4):
+  * Numerous changes to update testing gems.
+  * Remove pry, whoops.
+  * Ensure Gemfile retains facilities for Jenkins.
+  * Remove this test.
+ 
+ Adrien Thebo <git@somethingsinistral.net> (1):
+  * (maint) Pin rake version to 10.1.0 for 1.8 compat
+ 
+ Hunter Haugen <hunter@puppetlabs.com> (1):
+  * Release 3.2.2
+ 
+2014-03-03 Ashley Penney <ashley.penney@puppetlabs.com> - 3.2.1
+================================================================
+ stephen <stephen@puppetlabs.com> (3):
+  * Add test/validation for is_numeric if created from an arithmetical
+    operation
+  * Add test/validation for is_integer if created from an arithmetical
+    operation
+  * Add test/validation for is_float if created from an arithmetical
+    operation
+ 
+ Hunter Haugen <hunter@puppetlabs.com> (2):
+  * Supported Release 3.2.1
+  * Patch metadata
+ 
+2012-11-28 Jeff McCune <jeff@puppetlabs.com> - 3.2.0
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (7):
+  * Update Modulefile, CHANGELOG for 2.5.1
+  * (#14670) Fixup file_line autorequire specs
+  * Add example behaviors for ensure_packages() function
+  * (Maint) Add spec/functions to rake test task
+  * Revert "(Maint) Add spec/functions to rake test task"
+  * Update Modulefile, CHANGELOG for 2.6.0
+  * Update Modulefile, CHANGELOG for 3.2.0
+ 
+ Joshua Harlan Lifton <lifton@puppetlabs.com> (3):
+  * Fixed typo
+  * Extend delete function for strings and hashes
+  * Add join_keys_to_values function
+ 
+ Joe Julian <me@joejulian.name> (2):
+  * Add function, uriescape, to URI.escape strings. Redmine #17459
+  * Add function, uriescape, to URI.escape strings. Redmine #17459
+ 
+ Peter Meier <peter.meier@immerda.ch> (2):
+  * (#14670) autorequire a file_line resource's path
+  * Add reject() function
+ 
+ Chad Metcalf <chad@wibidata.com> (1):
+  * Add an ensure_packages function.
+ 
+ Erik Dalén <dalen@spotify.com> (1):
+  * (#17797) min() and max() functions
+ 
+ Gary Larizza <gary@puppetlabs.com> (1):
+  * Add the pick() function
+ 
+ Wil Cooley <wcooley@pdx.edu> (1):
+  * (#13974) Add predicate functions for interface facts
+ 
+2012-10-25 Jeff McCune <jeff@puppetlabs.com> - 3.1.1
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (4):
+  * (maint) Fix spec failures resulting from Facter API changes
+  * Revert "Merge branch '2.5.x' into 3.0.x"
+  * Revert "Revert "Merge branch '2.5.x' into 3.0.x""
+  * Update CHANGELOG, Modulefile for 3.1.1
+ 
+2012-10-25 Jeff McCune <jeff@puppetlabs.com> - 3.1.0
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (13):
+  * Revert "Revert "Merge branch
+    'hkenney-ticket/master/2157_remove_facts_dot_d'""
+  * Add .rspec file to repo root
+  * (Maint) Fix mis-use of rvalue functions as statements
+  * Disable tests that fail on 2.6.x due to #15912
+  * (Maint) Remove core function documentation from README
+  * (maint) Clear all facts before each example
+  * Prevent undefined method `split' for nil:NilClass with pe_foo_version
+    facts
+  * Revert "Merge branch 'haus-add_pe_facts_to_stdlib' into 2.4.x"
+  * Revert "Revert "Merge branch 'haus-add_pe_facts_to_stdlib' into 2.4.x""
+  * Revert "Revert "Merge branch 'haus-add_pe_facts_to_stdlib' into 2.4.x""
+  * Update Modulefile, CHANGELOG for 2.5.0
+  * Revert "Revert "Revert "Merge branch
+    'hkenney-ticket/master/2157_remove_facts_dot_d'"""
+  * Update Modulefile, CHANGELOG for 3.1.0
+ 
+ Dan Bode <dan@puppetlabs.com> (5):
+  * Add function ensure_resource and defined_with_params
+  * Handle undef for parameter argument
+  * Add better docs about duplicate resource failures
+  * re-formatting
+  * Explicitly load functions used by ensure_resource
+ 
+ Eric Sorenson <eric.sorenson@puppetlabs.com> (2):
+  * (#14422) Update README to include the bug tracker URL.
+  * (#14422) Update README to include the bug tracker URL.
+ 
+ Matthaus Owens <matthaus@puppetlabs.com> (2):
+  * Add PE facts to stdlib
+  * Add spec tests for pe_version facts
+ 
+ Paul Tötterman <paul.totterman@iki.fi> (1):
+  * Fix some logical inconsistencies in README
+ 
+2012-08-16 Jeff McCune <jeff@puppetlabs.com> - 3.0.1
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (2):
+  * Revert "Merge branch 'hkenney-ticket/master/2157_remove_facts_dot_d'"
+  * Update CHANGELOG, Modulefile for 3.0.1
+ 
+2012-08-16 Jeff McCune <jeff@puppetlabs.com> - 3.0.0
+=====================================================
+ Dan Bode <dan@puppetlabs.com> (6):
+  * Add function ensure_resource and defined_with_params
+  * Handle undef for parameter argument
+  * Add better docs about duplicate resource failures
+  * re-formatting
+  * Revert "Revert "Merge pull request #86 from bodepd/ensure_resource""
+  * Explicitly load functions used by ensure_resource
+ 
+ Jeff McCune <jeff@puppetlabs.com> (5):
+  * (#2157) Update README about facts_dot_d
+  * (Maint) use PuppetlabsSpec::PuppetInternals.scope (master)
+  * Revert "Merge pull request #86 from bodepd/ensure_resource"
+  * (Maint) Update README for 3.0.0
+  * Update CHANGELOG, Modulefile for 3.0.0
+ 
+ Branan Purvine-Riley <branan@puppetlabs.com> (2):
+  * Update for new gem version of puppetlabs_spec_helper
+  * Require the new puppetlabs_spec_helper gem name
+ 
+ Chris Price <chris@puppetlabs.com> (2):
+  * (#13693) moving logic from local spec_helper to puppetlabs_spec_helper
+  * Add support for a 'match' parameter to file_line
+ 
+ Hailee Kenney <hailee@puppetlabs.com> (1):
+  * (#2157) Remove facter_dot_d for compatibility with external facts
+ 
+2012-11-28 Jeff McCune <jeff@puppetlabs.com> - 2.6.0
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (5):
+  * (#14670) Fixup file_line autorequire specs
+  * Add example behaviors for ensure_packages() function
+  * (Maint) Add spec/functions to rake test task
+  * Revert "(Maint) Add spec/functions to rake test task"
+  * Update Modulefile, CHANGELOG for 2.6.0
+ 
+ Joshua Harlan Lifton <lifton@puppetlabs.com> (3):
+  * Fixed typo
+  * Extend delete function for strings and hashes
+  * Add join_keys_to_values function
+ 
+ Peter Meier <peter.meier@immerda.ch> (2):
+  * (#14670) autorequire a file_line resource's path
+  * Add reject() function
+ 
+ Chad Metcalf <chad@wibidata.com> (1):
+  * Add an ensure_packages function.
+ 
+ Erik Dalén <dalen@spotify.com> (1):
+  * (#17797) min() and max() functions
+ 
+ Gary Larizza <gary@puppetlabs.com> (1):
+  * Add the pick() function
+ 
+ Joe Julian <me@joejulian.name> (1):
+  * Add function, uriescape, to URI.escape strings. Redmine #17459
+ 
+ Wil Cooley <wcooley@pdx.edu> (1):
+  * (#13974) Add predicate functions for interface facts
+ 
+2012-10-25 Jeff McCune <jeff@puppetlabs.com> - 2.5.1
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (2):
+  * (maint) Fix spec failures resulting from Facter API changes
+  * Update Modulefile, CHANGELOG for 2.5.1
+ 
+2012-10-25 Jeff McCune <jeff@puppetlabs.com> - 2.5.0
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (8):
+  * Add .rspec file to repo root
+  * (Maint) Fix mis-use of rvalue functions as statements
+  * Disable tests that fail on 2.6.x due to #15912
+  * (maint) Clear all facts before each example
+  * Prevent undefined method `split' for nil:NilClass with pe_foo_version
+    facts
+  * Revert "Merge branch 'haus-add_pe_facts_to_stdlib' into 2.4.x"
+  * Revert "Revert "Merge branch 'haus-add_pe_facts_to_stdlib' into 2.4.x""
+  * Update Modulefile, CHANGELOG for 2.5.0
+ 
+ Dan Bode <dan@puppetlabs.com> (5):
+  * Add function ensure_resource and defined_with_params
+  * Handle undef for parameter argument
+  * Add better docs about duplicate resource failures
+  * re-formatting
+  * Explicitly load functions used by ensure_resource
+ 
+ Matthaus Owens <matthaus@puppetlabs.com> (2):
+  * Add PE facts to stdlib
+  * Add spec tests for pe_version facts
+ 
+2012-08-14 Jeff McCune <jeff@puppetlabs.com> - 2.4.0
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (8):
+  * (Maint) Fix interpreter lines
+  * (Maint) use PuppetlabsSpec::PuppetSeams.parser_scope
+  * (Maint) Rename PuppetlabsSpec::Puppet{Seams,Internals}
+  * (Maint) use PuppetlabsSpec::PuppetSeams.parser_scope (2.3.x)
+  * (Maint) Fix up the get_module_path parser function
+  * (Maint) Don't mock with mocha
+  * (Maint) use PuppetlabsSpec::PuppetInternals.scope (master)
+  * Update Modulefile, CHANGELOG for 2.4.0
+ 
+ Patrick Carlisle <patrick@puppetlabs.com> (3):
+  * Use rvalue functions correctly
+  * Make sure functions are loaded for each test
+  * Disable tests that fail on 2.6.x due to #15912
+ 
+ Chris Price <chris@puppetlabs.com> (1):
+  * Add support for a 'match' parameter to file_line
+ 
+ Erik Dalén <dalen@spotify.com> (1):
+  * (#15872) Add to_bytes function
+ 
+ Hailee Kenney <hailee@puppetlabs.com> (1):
+  * (#2157) Make facts_dot_d compatible with external facts
+ 
+ Steve Traylen <steve.traylen@cern.ch> (1):
+  * (#13205) Rotate array/string randomley based on fqdn, fqdn_rotate()
+ 
+2012-05-23 Jeff McCune <jeff@puppetlabs.com> - 2.3.3
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (2):
+  * Fix spec tests using the new spec_helper
+  * Update CHANGELOG, Modulefile for 2.3.3
+ 
+ Peter Meier <peter.meier@immerda.ch> (1):
+  * fix regression in #11017 properly
+ 
+2012-05-10 Jeff McCune <jeff@puppetlabs.com> - 2.3.2
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (9):
+  * Update CHANGELOG, Modulefile for 2.1.3
+  * (#13494) Specify the behavior of zero padded strings
+  * (#13439) Fix test failures with Puppet 2.6.x
+  * (#13439) Fix MRI 1.9 issue with spec_helper
+  * Revert "Merge remote-tracking branch
+    'eshamow/tickets/bug/13595_restrict_initialize_everything_for_tests' into
+    2.2.x"
+  * Fix spec tests using the new spec_helper
+  * Memoize file_line spec instance variables
+  * Make file_line default to ensure => present
+  * Update CHANGELOG for 2.3.2 release
+ 
+ Eric Shamow <eric@puppetlabs.com> (1):
+  * (#13595) initialize_everything_for_tests couples modules Puppet ver
+ 
+ cprice <chris@puppetlabs.com> (1):
+  * (#13439) refactor spec helper for compatibility with both puppet 2.7 and
+    master
+ 
+2012-03-13 Jeff McCune <jeff@puppetlabs.com> - 2.3.1
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (2):
+  * (#13091) Fix LoadError exception with puppet apply
+  * Update CHANGELOG and Modulefile for 2.3.1
+ 
+2012-03-12 Jeff McCune <jeff@puppetlabs.com> - 2.3.0
+=====================================================
+ Krzysztof Wilczynski <krzysztof.wilczynski@linux.com> (120):
+  * Re-factor of the code to make it more Puppet-friendly and update of the
+    short documentation in the comment lines.
+  * Fix to a type in the documentation.
+  * Re-factor. Removed not needed shebang for Ruby.
+  * Fix. Given vim mode line should end with : in order to work.
+  * Fix. Should yield empty data structure when given key cannot be found in
+    the hash upon parsing YAML file.
+  * Fix. The data structure should only be populated and/or set to be empty
+    if and only if key is present.
+  * Small re-factor.
+  * Check for the number of arguments given.
+  * Small re-factor.
+  * Changing the name of the file to reflect change in the function name.
+  * Changing the way how function description and usage was given.  Now
+    documentation is exposed properly via Puppet itself.
+  * First version.
+  * Adding README file ...
+  * Changing the name of the file to reflect change in the function name.
+  * Create destination directory on-demand i.e. when missing ...
+  * Minor changes. Added placeholder for :doc in Puppet's newfunction to fill
+    later.
+  * First version.  A function for Puppet that allows to retrieve a fact from
+    Facter easily instead of resorting to awful "inline_template"
+    use-and-abuse practices.
+  * We do not need cronrand.rb any more.
+  * Small changes.  Mainly to formatting of the help provided.
+  * Fix.  It is better to promote good practice...
+  * First version.  Adding join to Puppet for use within the manifest files.
+  * First version.  Function that allows to collect selected indices from an
+    array within Puppet manifest.  More or less how array slicing works in
+    Perl ...
+  * Small changes.  Added better error checking etc ...
+  * Adding ability to specifiy range as the index when selecting indices to
+    collect.
+  * Adding more error checking ...
+  * Updated error check and reporting.  Also we now return empty string value
+    i.e. "" instead of raising an exception when a particular fact is not
+    present.  We also make use of strinterp() explicitly to evaluate
+    arguments passed to the function.
+  * Update to error reporting.
+  * Updated help message.
+  * Added help accessible via the :doc functionality in Puppet's newfunction.
+  * First version.  Improvment upon bool2num function found on the Internet.
+  * Minor update.
+  * First version.  Function opposite to the bool2num one.  Converts number
+    to appropriate boolean value.
+  * Small re-factor of fact function.
+  * Changing name of join.rb to join_with_prefix.rb to make room for its
+    simpler version.
+  * Small re-factor to fact function.
+  * First version.  Simple join function to use within Puppet DSL.
+  * First version.  Simple prefix function to use within Puppet DSL.
+  * Re-factor of the original function.  Now its behaviour is either to join
+    with prefix or just add prefix or simply join.  This depends on its use.
+  * First version.  Simple empty function to use within Puppet DSL.
+  * First version.  Simple count function to use within Puppet DSL.
+  * First version.  Simple include function to use within Puppet DSL.
+  * First version.  Simple reverse function to use within Puppet DSL.
+  * First version.  Simple shuffle function to use within Puppet DSL.
+  * First version.  Simple unique function to use within Puppet DSL.
+  * First version.  Simple size function to use within Puppet DSL.
+  * Small re-factor.  We prefer our local clone of the array ...
+  * First version.  Simple delete_at function to use within Puppet DSL.
+  * Changing name of collect_indices.rb to values_at.rb in order to be
+    reasemble Ruby's Array#values_at more.  Added support for ranges with
+    hyphen, two and three dots notation.
+  * Removing surplus files.
+  * Changed comment line wording.
+  * Removing string interpolation from fact.rb.  I am not sure whether we
+    should fiddle with this.  The old behaviour e.g. evaluate when inside ""
+    and don't do anything when inside '' is probably better choice in the end
+    as people are used to it working that way.
+  * First version.  Simple range function to use within Puppet DSL.
+  * Changing name of the function from include to includes as it clashes with
+    a core function from Puppet::Parser.  I had no idea that you can
+    over-write some of the that way. Oops.
+  * Minor changes.
+  * First version.  Simple is_array function to use within Puppet DSL.
+  * First version.  Simple is_string function to use within Puppet DSL.
+  * First version.  Simple time function to use within Puppet DSL.
+  * First version.  Simple strftime function to use within Puppet DSL.
+  * Removing old unused file.
+  * First version.  Simple abs function to use within Puppet DSL.
+  * Added TODO for future reference.
+  * Changed wording from numeric to integer.
+  * Added TODO for future reference.
+  * Added TODO for future reference.
+  * Added TODO for future reference.
+  * Adding relevant code.
+  * First version.  Simple is_hash function to use within Puppet DSL.
+  * Adding support for string alongside arrays.
+  * First version.  Simple type function to use within Puppet DSL.
+  * First version.  Simple capitalize function to use within Puppet DSL.
+  * Small re-factor of shuffle function.  It is more compact now.
+  * Added support for strings to reverse.
+  * First version.  Simple strip function to use within Puppet DSL.
+  * First version.  Simple rstrip function to use within Puppet DSL.
+  * First version.  Simple lstrip function to use within Puppet DSL.
+  * First version.  Simple chop function to use within Puppet DSL.
+  * First version.  Simple chomp function to use within Puppet DSL.
+  * Adding support for strings and hashes to the function empty.
+  * Make sure that we have string-encoded integer value.
+  * Adding support for strings to the the function unique.
+  * Adding TODO for future reference.
+  * Added FalseClass and TrueClass to be identified as Boolean to the type
+    function.
+  * Added proper handling of both FalseClass and TrueClass.  We also return
+    real integer values now over string-encoded integers.
+  * Reverting name back to bool2num.
+  * First version.  Simple str2bool function to use within Puppet DSL.
+  * Minor changes.
+  * Added check to ensure that given fact name is a string.
+  * Minor change.
+  * Renaming from includes to member in order to avoid confusion and
+    possibility of a clash with Puppet built-in function include.
+  * Renaming the file from includes.rb to member.rb.
+  * Removing old file includes.rb
+  * Changed wording in the error message.
+  * Minor changes.
+  * Small re-factor.  Changed if not to unless for code clarity.
+  * Small re-factor.  Changed if not to unless for code clarity.
+  * Adding support for hash and string to the function count.
+  * Moved to unless from if not for code clarity and changed wording of few
+    error messages.
+  * Moved to unless from if not and removed TODO.
+  * Moved to unless from if not plus removed surplus empty lines.
+  * Moved to unless from if not and changed wording of few error messages.
+  * Added ability to flatten the resulting array in the function zip. This
+    would allow for creating hashes on the fly from two arrays.
+  * Now prefix will convert everything into string which is the same as join
+    would do.  Also function is now more robust in error detection.
+  * Function has now more robust error detection.
+  * Corrected function name from chop to strip.  Moved to unless from if not
+    to improve code clarity.
+  * Added comment line.
+  * Added comment line.
+  * Small change to code formatting.
+  * Moved to unless from if not to make code more clear.  Plus a variable
+    name change for simplicity.
+  * Added TODO for future reference.
+  * Moved to unless from if not to improve code clarity.  Added TODO for
+    future reference.  Changed wording of few error messages.
+  * Moved to unless from if not to improve code clarity.  Changed wording of
+    few error messages.
+  * Added body of the function flatten.
+  * Small re-factor.  Remove not needed complexity.
+  * Changed wording of the note in the comment.
+  * Change boolean detecion from string to make entire function more robust.
+  * First version.  Simple hash function to use within Puppet DSL.
+  * Add number of stub code for future functions.
+  * Making sure that the function hash will also work on older Rubies.
+  * First version.  Simple swapcase function to use within Puppet DSL.
+  * Add number of stub code for future functions.
+ 
+ Ken Barber <ken@bob.sh> (43):
+  * Convert to module format.
+  * Change README.
+  * Added Apache license.
+  * Moved type into pluginsync compat area.
+  * Moved type.rb
+  * Moved more functions into lib/puppet/parser/functions/
+  * Added disclaimer and basic installation guide to README.markdown file.
+  * Rename to puppetlabs-functions.
+  * Removed duplicate - is_hash is really now is_hash instead of is_array.
+  * Copied function test scaffolding from puppet.
+  * Added kwalify function.
+  * Added tests for each function, fixing functions as we hit bugs.
+  * New abs test.
+  * Add some more functional tests.
+  * Move require inside function for kwalify.
+  * Few more tests.
+  * Added validate_resource function and examples on how to use it (and
+    kwalify as well)
+  * (#1) - fleshed out some more tests.
+  * (#2) - Added is_float and is_integer functionality.
+  * (#1) - added new test for upcase.
+  * (#2) - unstubbed is_valid_ip_address
+  * (#2) unstub is_numeric function.
+  * Remove is_valid_netmask instead of unstubbing. Doesn't seem like a
+    sensible function on its own.
+  * Removed load_variables. load_yaml is sufficient to solve this problem on
+    its own.
+  * Removed crontab functions instead of unstubbing them.
+  * Count functionality overlaps with size - so removing it.
+  * Allow sort for strings.
+  * (#2) unstub is_valid_mac_address.
+  * Removed join_with_prefix.
+  * (#2) unstub is_valid_domain_name
+  * (#2) fix is_string finally so it also makes sure numbers return false.
+  * Removed date stub since this functinality is available in strftime
+    anyway.
+  * (#1) provide some more detailed tests for a number of functions.
+  * Some improvements to values_at tests.
+  * Remove rand.
+  * (#3) Apply missing documentation to more functions.
+  * (#3) Provide documentation for remaining functions.
+  * Fix some ruby 1.9.2 issues.
+  * Prep for stdlib merge * Renamed load_yaml & load_json to parseyaml &
+    parsejson * Renamed is_valid_* functions and remove the 'valid_'
+  * * Moved kwalify to puppetlabs-kwalify project * Re-arranged tests in line
+    with puppetlabs-stdlib
+  * (#8925) Added new function called 'get_certificate' for retrieving
+    certificates from a CA (or locally).
+  * (#11873) time function spec failure on Fixnum matcher
+  * (#13018) Fix missing method any? message for ruby 1.9.x
+ 
+ Jeff McCune <jeff@puppetlabs.com> (20):
+  * Update CHANGELOG, README and Modulefile for v2.1.1
+  * (#9859) Add root_home fact and tests
+  * (#10007) Revert "Merge pull request #13 from
+    kbarber/issue/master/8925-user_ssl_certs"
+  * (Maint) Make rspec tests work with Puppet 2.6.4
+  * (Maint) Add watchr autotest script
+  * Update the release process instructions.
+  * Add note about semver.org leading v in tags.
+  * Update CHANGELOG and Modulefile for 2.2.1
+  * (#11901) Fix sort order error in tests for 'keys' and 'values'
+  * (maint) Memoize scope in domain_name spec
+  * Add additional domain name tests
+  * (#12357) Fix root_home fact on Windows
+  * (#12357) Add puppet_vardir custom fact
+  * (#12357) Make facter_dot_d look in Puppet[:confdir]/facts.d
+  * (maint) Stop printing the directory of spec_helper
+  * (#12357) Add validate_absolute_path() function
+  * (#12357) Add ability to display an error message from validate_re
+  * (maint) Comment Ken's fix to String#any?
+  * (#12357) Fix broken compatibility with Puppet 2.6
+  * Update CHANGELOG, Modulefile for 2.3.0 release
+ 
+ Roman Barczyński <romke@estrefa.pl> (3):
+  * initial version
+  * cronrand - stateful (between puppet runs) randomizer eg. for cron minutes
+    for equal load distribution
+  * no need for "#! ruby", vim modeline must end with ":", and fixed not
+    found key bug
+ 
+ James Turnbull <james@lovedthanlost.net> (2):
+  * Added doc strings for first five functions
+  *  * v2.x:       Update CHANGELOG and Modulefile for v2.2.0
+ 
+ Chris Spence <chris.spence@puppetlabs.com> (1):
+  * (#12776) Added validate_slength function and rspec test
+ 
+ Dan Bode <dan@puppetlabs.com> (1):
+  * (#10802) add new function get_module_path
+ 
+ Gary Larizza <gary@puppetlabs.com> (1):
+  * New str2saltedsha512 function for OS X Passwords
+ 
+ Nan Liu <nan@puppetlabs.com> (1):
+  * (#10285) Refactor json to use pson instead.
+ 
+ Peter Meier <peter.meier@immerda.ch> (1):
+  * implement #11017 - make file_line type ensurable
+ 
+ Richard Clamp <richardc@unixbeard.net> (1):
+  * Update the documentation comment
+ 
+ Stig Sandbeck Mathisen <ssm@debian.org> (1):
+  * Check according to rfc1035
+ 
+2012-03-29 Jeff McCune <jeff@puppetlabs.com> - 2.1.3
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (25):
+  * Remove metadata.json from repository
+  * (#8010) Add getvar() rvalue function
+  * (#8010) Add validate_hash function
+  * (#8010) Add validate_hash spec tests
+  * Update README with getvar() and validate_hash()
+  * Update CHANGELOG and version for 0.1.7
+  * (#8575) Add loadyaml() function
+  * (#8717) Make merge() function work with Ruby 1.8.5
+  * (#8678) Add validate_array and validate_string functions
+  * Update CHANGELOG and README for 1.0.0
+  * Update CHANGELOG and Modulefile for 1.1.0
+  * (#8792) Rename whole_line type to file_line
+  * (#8792) Rename basic smoke test to reflect file_line rename
+  * Update CHANGELOG and Modulefile for 2.0.0 release
+  * (#9080) Add facts from /etc/puppetlabs/facts.d
+  * Update CHANGELOG, Modulefile and README for 2.1.0
+  * (#9080) Make facts.d match Facter 2.0
+  * Update CHANGELOG, README and Modulefile for v2.1.1
+  * Docs: Improve example in merge function
+  * Docs: Update file_line documentation
+  * (maint) Add semantic versioning info to README
+  * Update Modulefile CHANGELOG for v2.1.2 release
+  * (#11607) Add Rakefile to enable spec testing
+  * (#12377) Avoid infinite loop when retrying require json
+  * Update CHANGELOG, Modulefile for 2.1.3
+ 
+ nfagerlund <nick.fagerlund@gmail.com> (5):
+  * Docs: Update documentation of stdlib classes
+  * Docs: Correct indentation of markdown code examples
+  * Docs: Copyedit function doc strings
+  * Docs: Remove author emails from stdlib functions
+  * Docs: Clarify the use case for the anchor type
+ 
+ Dan Bode <dan@puppetlabs.com> (4):
+  * (#8628) Add append_line native type
+  * (#8665) Change type from append_line to whole_line
+  * (#8708) Add has_key function
+  * (#8709) Add hash merging function
+ 
+2011-06-15 Jeff McCune <jeff@puppetlabs.com> - 0.1.6
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (4):
+  * Add additional tests to validate_bool() spec
+  * (#3) Add an anchor type to provide containment
+  * (#3) Add simple unit test for anchor type
+  * Update CHANGELOG for version 0.1.6
+ 
+2011-06-03 Jeff McCune <jeff@puppetlabs.com> - 0.1.5
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (4):
+  * Add validate_bool() function to stdlib
+  * Add spec test for validate_bool function
+  * Add Apache 2.0 License
+  * Update CHANGELOG for 0.1.5
+ 
+2011-05-26 Jeff McCune <jeff@puppetlabs.com> - 0.1.4
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (2):
+  * Move stages to after main
+  * Update CHANGELOG with stage re-ordering
+ 
+2011-05-25 Jeff McCune <jeff@puppetlabs.com> - 0.1.3
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (3):
+  * Add DS_Store to gitignore
+  * (#7657) Add basic validate_re function
+  * Update CHANGELOG for 0.1.3 release
+ 
+2011-05-24 Jeff McCune <jeff@puppetlabs.com> - 0.1.2
+=====================================================
+ Jeff McCune <jeff@puppetlabs.com> (1):
+  * Update changelog for version 0.1.2
+ 
+2011-05-24 Jeff McCune <jeff@puppetlabs.com> - 0.1.1
+=====================================================
+ * no changes since the previous version.

@@ -1,6 +1,7 @@
 class puppet::config {
-
   include  puppet::params
+  $puppetserver = "master.example.com"
+  $puppetenvironment = "production"
 
   file { '/etc/puppetlabs/puppet/puppet.conf':
     ensure  => present,

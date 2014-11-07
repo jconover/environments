@@ -1,19 +1,19 @@
 [main]
-    certname = <%= @puppetserver %>
-    #dns_alt_names = master,master.example.com
+    certname = master.example.com
+    dns_alt_names = master,master.example.com
     vardir = /var/opt/lib/pe-puppet
     logdir = /var/log/pe-puppet
     rundir = /var/run/pe-puppet
     environmentpath = $confdir/environments
     basemodulepath = /etc/puppetlabs/puppet/modules:/opt/puppet/share/puppet/modules
-    server = <%= @fqdn %>
+    server = master.example.com
     user  = pe-puppet
     group = pe-puppet
     archive_files = true
-    archive_file_server = <%= @puppetserver %>
+    archive_file_server = master.example.com
 
 [master]
-    certname = <%= @fqdn %>
+    certname = master.example.com
     ca_name = 'Puppet CA generated on master at 2014-09-18 06:42:19 +0000'
     reports = console,puppetdb
     node_terminus = console
@@ -28,4 +28,4 @@
     localconfig = $vardir/localconfig
     graph = true
     pluginsync = true
-    environment = <%= @puppetenvironment %>
+    environment = production

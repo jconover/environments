@@ -36,6 +36,8 @@
 # Copyright 2014 Your name here, unless otherwise noted.
 #
 class puppet {
-
-
+  include puppet::params
+  include puppet::install
+  include puppet::config
+  include puppet::service
 }

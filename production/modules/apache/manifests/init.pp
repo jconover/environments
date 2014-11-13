@@ -36,6 +36,7 @@
 # Copyright 2014 Your name here, unless otherwise noted.
 #
 class apache {
-  include apache::install
+  include apache::package
   include apache::service
+  include apache::firewall
 }

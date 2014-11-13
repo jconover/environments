@@ -9,12 +9,17 @@ define apache::vhost(
 
   include apache
 
-  file {"/etc/apache2/sites-enabled/${priority}-${name}":
+  file { '/var/www/sites-enabled':
+    ensure => directory,
+  }
+
+
+  file {"/var/www/sites-enabled/${priority}-${name}":
     content => template($template),
     owner   => 'root',
     group   => 'root',
     mode    => '0640',
-    require => Class['apache::install'],
+    require => Class['apache::package'],
     notify  => Class['apache::service'],
   }
 }
